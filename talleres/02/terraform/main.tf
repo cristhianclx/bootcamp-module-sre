@@ -54,3 +54,4 @@ service_metrics_memory_utilization_low_threshold = 20
 
   depends_on = [module.alb]
 }
+
