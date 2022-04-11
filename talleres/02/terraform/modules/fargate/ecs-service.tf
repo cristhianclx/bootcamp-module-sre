@@ -11,12 +11,12 @@ resource "aws_ecs_task_definition" "service" {
   memory = var.service_memory
 
   container_definitions = templatefile("${path.module}/ecs-service.json", {
-    name      = var.name,
-    app_image = var.app_image,
-    fargate_cpu = var.fargate_cpu,
+    name           = var.name,
+    app_image      = var.app_image,
+    fargate_cpu    = var.fargate_cpu,
     fargate_memory = var.fargate_memory,
-    app_port = var.app_port
-  })  
+    app_port       = var.app_port
+  })
 }
 
 resource "aws_ecs_service" "service" {

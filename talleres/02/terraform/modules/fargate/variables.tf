@@ -1,22 +1,22 @@
 variable "name" {
-          type        = string
-          description = "nombre de la aplicación"
-        }
+  type        = string
+  description = "nombre de la aplicación"
+}
 variable "service_port" {
-        }
+}
 variable "service_cpu" {
-        }
+}
 variable "service_memory" {
-        }        
+}
 variable "app_image" {
-        }
+}
 variable "fargate_cpu" {
-        }
+}
 variable "fargate_memory" {
-        }
+}
 variable "app_port" {
-        }
-                
+}
+
 variable "environment_variables" {}
 variable "ecs_cluster_arn" {}
 variable "service_scale_desired" {}

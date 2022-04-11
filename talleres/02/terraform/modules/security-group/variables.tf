@@ -1,15 +1,15 @@
-variable "project_name"{
-    type = string
+variable "project_name" {
+  type = string
 }
 
 variable "vpc_id" {
-    type = string
+  type = string
 }
 
-variable "cidr_block"{
-    type = string
+variable "cidr_block" {
+  type = string
 }
 
-variable "ports"{
-    type = list(string)
+variable "ports" {
+  type = list(string)
 }
