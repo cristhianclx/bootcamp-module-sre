@@ -1,0 +1,36 @@
+[
+  {
+    "name": "${name}",      
+    "image": "${app_image}",
+    "cpu": ${fargate_cpu},
+    "memory": ${fargate_memory},
+    "networkMode": "awsvpc",
+    "ulimits": [{
+      "name": "nofile",
+      "softLimit": 65536,
+      "hardLimit": 65536
+    }],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-create-group": "true",
+        "awslogs-group" : "awslogs/${name}/fargate",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "ecs"
+      }
+    },
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": ${app_port},
+        "hostPort": ${app_port}
+      }
+    ],
+    "environment": [
+      {
+        "name": "NAME",
+        "value": "${name}"
+      }
+    ]
+  }
+]
