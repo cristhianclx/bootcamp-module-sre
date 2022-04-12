@@ -28,7 +28,7 @@ module "fargate_mf" {
   subnet_ids = local.subnet_ids_private
 
   # Service
-  service_port                                      = 8000
+  service_port                                      = var.app_port
   service_cpu                                       = 2048
   service_memory                                    = 4096
   environment_variables                             = {}

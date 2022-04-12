@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "service" {
-  family = "${var.name}-service"
+  family = var.name
 
   execution_role_arn = aws_iam_role.ecs_execution_role.arn
   task_role_arn      = aws_iam_role.ecs_role.arn
@@ -20,7 +20,7 @@ resource "aws_ecs_task_definition" "service" {
 }
 
 resource "aws_ecs_service" "service" {
-  name = "${var.name}-service"
+  name = var.name
 
   cluster         = var.ecs_cluster_arn
   launch_type     = "FARGATE"
@@ -35,7 +35,7 @@ resource "aws_ecs_service" "service" {
 
   load_balancer {
     target_group_arn = var.target_group_arn
-    container_name   = "${var.name}-service"
+    container_name   = var.name
     container_port   = var.service_port
   }
 }
